@@ -1,0 +1,14 @@
+_extends: fusion_peft_cv.yaml
+run_name: scheme02b_b1_p32_hardw_mild_cv
+
+# Opt-in supervised-only sprint candidate. Keep the strongest B1 p32 fusion
+# structure and mildly upweight validation-hard classes; no pseudo labels.
+class_weighting:
+  mode: manual
+  normalize_mean: true
+  weights:
+    Class_0: 1.0
+    Class_1: 1.0
+    Class_2: 1.12
+    Class_3: 1.18
+    Class_4: 1.15

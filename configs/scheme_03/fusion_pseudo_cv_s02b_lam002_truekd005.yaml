@@ -1,0 +1,3 @@
+_extends: fusion_pseudo_cv_s02b_lam002_truekd02.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_truekd005
+true_soft_loss_scale: 0.05

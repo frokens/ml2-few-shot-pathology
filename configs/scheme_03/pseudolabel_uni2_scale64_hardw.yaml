@@ -1,0 +1,14 @@
+_extends: pseudolabel.yaml
+run_name: scheme03_pseudolabel_uni2_scale64_hardw
+precision_target: 0.97
+precision_lower_bound_target: 0.85
+min_selected: 1
+min_selected_per_class: 0
+thresholds_from: artifacts/pseudolabels/uni2_scale64_hardw_simulation/thresholds_selected.json
+
+sample_weight:
+  min_weight: 0.1
+  max_weight: 0.4
+  weight_function: linear
+
+effective_weight_lambdas: [0.001, 0.002, 0.005]

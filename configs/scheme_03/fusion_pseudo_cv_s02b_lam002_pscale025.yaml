@@ -1,0 +1,8 @@
+_extends: fusion_pseudo_cv_s02b_lam002.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_pscale025
+
+# Opt-in sprint candidate. The legacy mixed hard/soft loss normalizes the
+# pseudo term internally, so lambda_pseudo affects row selection metadata but
+# not the relative true-vs-pseudo loss magnitude. Keep default behavior
+# unchanged and explicitly reduce only this candidate's pseudo term.
+pseudo_loss_scale: 0.25

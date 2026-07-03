@@ -1,0 +1,28 @@
+# Core ML
+torch
+torchvision
+timm
+huggingface-hub
+# CONCH official tokenizer helper currently requires the Transformers 4.x
+# tokenizer API; Transformers 5.x breaks `batch_encode_plus`.
+transformers<5
+peft
+
+# Classical ML & metrics
+scikit-learn
+numpy
+pandas
+joblib
+
+# Image handling
+Pillow
+opencv-python-headless
+
+# CLI & logging
+typer[all]
+rich
+pyyaml
+loguru
+
+# Config
+omegaconf

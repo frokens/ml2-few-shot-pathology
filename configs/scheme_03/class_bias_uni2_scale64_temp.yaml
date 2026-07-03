@@ -1,0 +1,14 @@
+run_name: s02a_uni2_scale64_class_bias_temp
+oof_prediction: runs/scheme_02/s02a_uni2_scale64_cv_20260612/predictions/oof_uni2_h__rslora_qkv_proj_r16_no_ema_scale64.npz
+out_dir: artifacts/analysis/scheme03_class_bias/uni2_scale64_temp
+seed: 2026
+n_splits: 5
+
+temperature_grid: [0.70, 0.85, 1.00, 1.15, 1.30]
+
+bias_grid:
+  Class_0: [-0.40, -0.20, 0.00, 0.20]
+  Class_1: [-0.30, -0.10, 0.10, 0.30]
+  Class_2: [-0.30, -0.10, 0.10, 0.30]
+  Class_3: [-0.10, 0.10, 0.30, 0.50]
+  Class_4: [-0.40, -0.20, 0.00, 0.20]

@@ -1,0 +1,55 @@
+run_name: scheme01_conch_prompt_probe
+train_manifest: artifacts/dataset_audit/train_manifest.csv
+test_manifest: artifacts/dataset_audit/test_manifest.csv
+run_dir: runs/scheme_01/scheme01_conch_prompt_probe
+selection_path: artifacts/selection/conch_prompt_best.yaml
+reference_mapping_path: artifacts/selection/reference_class_mapping.yaml
+use_reference_mapping: true
+require_reference_mapping: true
+
+device: cuda
+batch_size: 32
+num_workers: 4
+model_name: conch_ViT-B-16
+lock_key: conch
+lock_path: artifacts/model_registry/models.lock.yaml
+
+# Best-supported mapping from local train_few_shot visual audit plus the
+# labeled reference dataset. Eosinophil is
+# present in the reference six-class dataset but is not mapped to a current
+# Class_X in this five-class task.
+class_descriptions:
+  Class_0:
+    cell_name: epithelial cell
+    description: epithelial cells in an H&E stained histopathology crop
+  Class_1:
+    cell_name: neutrophil
+    description: neutrophils with segmented or lobulated nuclei in an H&E stained crop
+  Class_2:
+    cell_name: lymphocyte
+    description: lymphocytes with small dark round nuclei in an H&E stained crop
+  Class_3:
+    cell_name: connective tissue
+    description: connective tissue or stromal tissue in an H&E stained crop
+  Class_4:
+    cell_name: plasma cell
+    description: plasma cells with eccentric nuclei in an H&E stained crop
+
+prompt_families:
+  concise_pathology:
+    templates:
+      - "a histopathology image of {cell_name}."
+      - "a microscopy image of {cell_name}."
+      - "an image of {cell_name} in tissue."
+
+  he_cell:
+    templates:
+      - "an H&E stained histopathology image showing {cell_name}."
+      - "a hematoxylin and eosin stained microscopy crop of {cell_name}."
+      - "a pathology image of {cell_name} cells."
+
+  morphology_context:
+    templates:
+      - "an H&E stained histopathology crop showing {description}."
+      - "a microscopic pathology image containing {description}."
+      - "a small cell morphology crop of {description}."

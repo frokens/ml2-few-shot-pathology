@@ -1,0 +1,22 @@
+_extends: peft_cv.yaml
+run_name: s02_lr_confirm
+skip_completed: true
+experiments:
+  - name: lora_qkv_r8_lr5e5
+    mode: lora
+    adapter_lr: 0.00005
+    head_lr: 0.0005
+    target_policy: attention_qkv
+    lora: {r: 8, alpha: 16, dropout: 0.05, bias: none, modules_to_save: [classifier]}
+  - name: lora_qkv_r8_lr2e5
+    mode: lora
+    adapter_lr: 0.00002
+    head_lr: 0.0005
+    target_policy: attention_qkv
+    lora: {r: 8, alpha: 16, dropout: 0.05, bias: none, modules_to_save: [classifier]}
+  - name: lora_qkv_r8_lr1e4
+    mode: lora
+    adapter_lr: 0.0001
+    head_lr: 0.0005
+    target_policy: attention_qkv
+    lora: {r: 8, alpha: 16, dropout: 0.05, bias: none, modules_to_save: [classifier]}

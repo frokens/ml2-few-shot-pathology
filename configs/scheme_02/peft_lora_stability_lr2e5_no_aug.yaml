@@ -1,0 +1,20 @@
+_extends: peft_cv.yaml
+run_name: s02_lora_stability_lr2e5_no_aug
+skip_completed: true
+augmentation:
+  hflip_prob: 0.0
+  vflip_prob: 0.0
+  rot90_prob: 0.0
+  translate: 0.0
+  color_jitter: null
+experiments:
+  - name: lora_qkv_r8_lr2e5_head2e4_do10_wd5e2
+    mode: lora
+    epochs: 80
+    batch_size: 8
+    adapter_lr: 0.00002
+    head_lr: 0.0002
+    weight_decay: 0.05
+    label_smoothing: 0.05
+    target_policy: attention_qkv
+    lora: {r: 8, alpha: 16, dropout: 0.10, bias: none, modules_to_save: [classifier]}

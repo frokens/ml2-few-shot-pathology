@@ -1,0 +1,7 @@
+_extends: fusion_pseudo_cv_s02b_lam002.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_truew_clean05
+
+# Training-only row weights derived from fold-safe OOF diagnostics on the
+# true-label training rows. The final model remains a single fusion student.
+true_soft_labels: artifacts/analysis/scheme03_oof_complement/a_lam002_family_20260612/true_sample_weight_clean05.csv
+true_soft_loss_scale: 0.0

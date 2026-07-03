@@ -1,0 +1,9 @@
+run_name: final_submission_scheme02b_best
+test_prediction_files:
+  - runs/scheme_03/s03_scheme02b_best_single_refit/predictions/test_fusion__b1_uni_conch_adapters_all4_concat_p32_reg__single_refit.npz
+test_prediction_sources_file: null
+prediction_search_dir: null
+allow_prediction_search: false
+submission_dir: artifacts/submissions/scheme02b_best_single_refit
+test_manifest: artifacts/dataset_audit/test_manifest.csv
+

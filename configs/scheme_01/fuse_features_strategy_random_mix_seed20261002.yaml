@@ -1,0 +1,17 @@
+run_name: s01_strategy_fusion
+fusion_id: random_mix_seed20261002
+output_dir: artifacts/features/scheme_01
+# Fixed random mixed strategy over 250-row feature bundles only.
+sources:
+  - name: uni2_h_d4
+    path: artifacts/features/scheme_01/s01_d4/uni2_h/uni2_h_timm_tta-d4_5eb18eca11.npz
+    weight: 1.0
+  - name: virchow2_mild_color
+    path: artifacts/features/scheme_01/s01_mild_color/virchow2/virchow2_timm_tta-d4_color-0p080_fd647b707a.npz
+    weight: 1.0
+  - name: conch_single
+    path: artifacts/features/scheme_01/s01_single/conch/conch_conch_tta-none_effa33cf57.npz
+    weight: 1.0
+  - name: h_optimus_0_d4
+    path: artifacts/features/scheme_01/s01_d4/h_optimus_0/h_optimus_0_timm_tta-d4_9ffa041b4c.npz
+    weight: 1.0

@@ -1,0 +1,19 @@
+# Common metrics configuration
+
+metrics:
+  cv:
+    n_splits: 5
+    n_repeats: 5
+    random_state: 42
+    shuffle: true
+
+  classification:
+    average: macro
+    zero_division: 0
+
+  target_metric: balanced_accuracy
+  secondary_metrics:
+    - macro_f1
+    - accuracy
+    - per_class_f1
+    - confusion_matrix

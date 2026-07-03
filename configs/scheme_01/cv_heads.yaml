@@ -1,0 +1,38 @@
+run_name: frozen_main4_cv
+features_dir: artifacts/features/scheme_01
+run_dir: runs/scheme_01/frozen_main4_cv
+seed: 2026
+n_splits: 5
+n_repeats: 1
+skip_completed: true
+ensemble:
+  top_k: 3
+  weighted_search: true
+  weight_step: 0.1
+  max_weighted_sources: 5
+heads:
+  - name: logreg_C0.1
+    family: logreg
+    C: 0.1
+  - name: logreg_C1
+    family: logreg
+    C: 1.0
+  - name: logreg_C3
+    family: logreg
+    C: 3.0
+  - name: svc_rbf_C1
+    family: svc_rbf
+    C: 1.0
+    gamma: scale
+  - name: svc_rbf_C3
+    family: svc_rbf
+    C: 3.0
+    gamma: scale
+  - name: knn_cosine_k3
+    family: knn_cosine
+    k: 3
+  - name: knn_cosine_k5
+    family: knn_cosine
+    k: 5
+  - name: prototype_cosine
+    family: prototype

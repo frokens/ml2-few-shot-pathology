@@ -1,0 +1,133 @@
+run_name: scheme02b_fusion_smoke
+seed: 2026
+train_manifest: artifacts/dataset_audit/train_manifest.csv
+device: cuda
+precision: bf16
+num_workers: 2
+n_splits: 5
+max_folds: 1
+smoke_max_folds: 1
+batch_size: 1
+epochs: 1
+head_lr: 0.001
+weight_decay: 0.01
+label_smoothing: 0.0
+max_train_batches: 2
+max_eval_batches: 2
+projection_dim: 128
+
+adapter_sources:
+  uni2_h:
+    source_run: s02a_uni2_no_ema_offline_20260610
+    experiment_id: uni2_h__rslora_qkv_proj_r16_no_ema
+    target_policy: attention_qkv_proj
+    checkpoint_name: best_macro_f1.pt
+    lora:
+      r: 16
+      alpha: 32
+      dropout: 0.05
+      bias: none
+      modules_to_save: [classifier]
+      use_rslora: true
+  conch:
+    source_run: s02a_conch_no_ema_20260610
+    experiment_id: conch__lora_qkv_proj_r16_no_ema
+    target_policy: attention_qkv_proj
+    checkpoint_name: best_macro_f1.pt
+    lora:
+      r: 16
+      alpha: 32
+      dropout: 0.05
+      bias: none
+      modules_to_save: [classifier]
+
+augmentation:
+  hflip_prob: 0.5
+  vflip_prob: 0.5
+  rot90_prob: 0.5
+  translate: 0.03
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+
+branches:
+  - key: uni2_h
+    backend: timm
+    model_name: hf-hub:MahmoodLab/UNI2-h
+    lock_key: uni2_h
+    input_size: 224
+    pretrained: true
+    feature_dim: 1536
+    model_kwargs:
+      img_size: 224
+      patch_size: 14
+      depth: 24
+      num_heads: 24
+      init_values: 1.0e-5
+      embed_dim: 1536
+      mlp_ratio: 5.33334
+      num_classes: 0
+      no_embed_class: true
+      mlp_layer: timm.layers.SwiGLUPacked
+      act_layer: torch.nn.SiLU
+      reg_tokens: 8
+      dynamic_img_size: true
+  - key: virchow2
+    backend: timm
+    model_name: hf-hub:paige-ai/Virchow2
+    lock_key: virchow2
+    input_size: 224
+    pretrained: true
+    feature_dim: 2560
+    feature_policy: virchow2_official
+    model_kwargs:
+      mlp_layer: timm.layers.SwiGLUPacked
+      act_layer: torch.nn.SiLU
+  - key: conch
+    backend: conch
+    model_name: conch_ViT-B-16
+    lock_key: conch
+    lock_path: artifacts/model_registry/models.lock.yaml
+    input_size: 224
+    pretrained: true
+    feature_dim: 512
+  - key: h_optimus_0
+    backend: timm
+    model_name: hf-hub:bioptimus/H-optimus-0
+    lock_key: h_optimus_0
+    input_size: 224
+    pretrained: true
+    feature_dim: 1536
+    model_kwargs:
+      num_classes: 0
+      init_values: 1.0e-5
+      dynamic_img_size: false
+    mean: [0.707223, 0.578729, 0.703617]
+    std: [0.211883, 0.230117, 0.177517]
+
+experiments:
+  - name: b0_concat_smoke
+    composer: concat_linear
+    projection_dim: 128
+    dropout: 0.1
+    epochs: 1
+    batch_size: 1
+  - name: b0_gated_smoke
+    composer: gated_sum
+    projection_dim: 128
+    dropout: 0.1
+    epochs: 1
+    batch_size: 1
+  - name: b1_adapter_concat_smoke
+    composer: concat_linear
+    projection_dim: 128
+    dropout: 0.1
+    epochs: 1
+    batch_size: 1
+    adapter_branches: [uni2_h, conch]
+  - name: b1_adapter_gated_smoke
+    composer: gated_sum
+    projection_dim: 128
+    dropout: 0.1
+    epochs: 1
+    batch_size: 1
+    adapter_branches: [uni2_h, conch]

@@ -1,0 +1,12 @@
+run_name: scheme03_pseudo_retrain_smoke
+seed: 2026
+class_names: [Class_0, Class_1, Class_2, Class_3, Class_4]
+lambda_pseudo: 0.2
+allow_missing_features: true
+
+heads:
+  - name: logreg_pseudo_C1
+    family: logreg
+    C: 1.0
+    max_iter: 2000
+

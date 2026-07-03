@@ -1,0 +1,4 @@
+_extends: fusion_pseudo_cv_s02b.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam005
+lambda_pseudo: 0.05
+min_pseudo_sample_weight: 0.0

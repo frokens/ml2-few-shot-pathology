@@ -1,0 +1,61 @@
+run_name: fused_single_cv
+features_dir: artifacts/features/scheme_01/s01_fused_single
+run_dir: runs/scheme_01/fused_single_cv
+seed: 2026
+n_splits: 5
+n_repeats: 1
+skip_completed: true
+ensemble:
+  enabled: false
+heads:
+  - name: logreg_C0.01
+    family: logreg
+    C: 0.01
+  - name: logreg_C0.03
+    family: logreg
+    C: 0.03
+  - name: logreg_C0.1
+    family: logreg
+    C: 0.1
+  - name: logreg_C0.3
+    family: logreg
+    C: 0.3
+  - name: logreg_C1
+    family: logreg
+    C: 1.0
+  - name: logreg_C3
+    family: logreg
+    C: 3.0
+  - name: logreg_C10
+    family: logreg
+    C: 10.0
+  - name: svc_linear_C0.1
+    family: svc_linear
+    C: 0.1
+  - name: svc_linear_C1
+    family: svc_linear
+    C: 1.0
+  - name: svc_linear_C3
+    family: svc_linear
+    C: 3.0
+  - name: prototype_cosine
+    family: prototype
+  - name: simpleshot_center_l2_t0.5
+    family: prototype
+    center: true
+    normalize: true
+    temperature: 0.5
+  - name: simpleshot_center_l2_t1
+    family: prototype
+    center: true
+    normalize: true
+    temperature: 1.0
+  - name: knn_cosine_k3
+    family: knn_cosine
+    k: 3
+  - name: knn_cosine_k5
+    family: knn_cosine
+    k: 5
+  - name: lda_shrinkage_auto
+    family: lda_shrinkage
+    shrinkage: auto

@@ -1,0 +1,61 @@
+run_name: fused_single_structured_cv
+features_dir: artifacts/features/scheme_01/s01_fused_single
+run_dir: runs/scheme_01/fused_single_structured_cv
+seed: 2026
+n_splits: 5
+n_repeats: 1
+skip_completed: true
+ensemble:
+  enabled: false
+heads:
+  - name: logreg_C1_baseline
+    family: logreg
+    C: 1.0
+  - name: pca32_logreg_C0.3
+    family: pca_logreg
+    n_components: 32
+    C: 0.3
+  - name: pca32_logreg_C1
+    family: pca_logreg
+    n_components: 32
+    C: 1.0
+  - name: pca64_logreg_C0.3
+    family: pca_logreg
+    n_components: 64
+    C: 0.3
+  - name: pca64_logreg_C1
+    family: pca_logreg
+    n_components: 64
+    C: 1.0
+  - name: pca128_logreg_C0.3
+    family: pca_logreg
+    n_components: 128
+    C: 0.3
+  - name: pca128_logreg_C1
+    family: pca_logreg
+    n_components: 128
+    C: 1.0
+  - name: hierarchical_hard_C0.3
+    family: hierarchical_hard
+    hard_classes: [2, 3, 4]
+    base_C: 0.3
+    gate_C: 0.3
+    hard_C: 0.3
+  - name: hierarchical_hard_C1
+    family: hierarchical_hard
+    hard_classes: [2, 3, 4]
+    base_C: 1.0
+    gate_C: 1.0
+    hard_C: 1.0
+  - name: hierarchical_hard_base1_gate0.3_hard3
+    family: hierarchical_hard
+    hard_classes: [2, 3, 4]
+    base_C: 1.0
+    gate_C: 0.3
+    hard_C: 3.0
+  - name: hierarchical_hard_base1_gate1_hard0.3
+    family: hierarchical_hard
+    hard_classes: [2, 3, 4]
+    base_C: 1.0
+    gate_C: 1.0
+    hard_C: 0.3

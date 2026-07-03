@@ -1,0 +1,4 @@
+_extends: fusion_peft_cv.yaml
+run_name: scheme02b_b1_p32_seed2027_cv
+seed: 2027
+split_seed: 2026

@@ -1,0 +1,24 @@
+run_name: scheme03_pseudolabel_smoke
+seed: 2026
+class_names: [Class_0, Class_1, Class_2, Class_3, Class_4]
+
+teacher_oof_csv: teacher_oof_predictions.csv
+teacher_test_csv: teacher_test_predictions.csv
+precision_target: 0.90
+min_selected: 1
+min_selected_per_class: 1
+per_class_policy: true
+min_teacher_agreement: 0.0
+
+policy_grid:
+  prob_top1: [0.50, 0.60, 0.70, 0.80]
+  margin: [0.00, 0.05, 0.10]
+  entropy_max: [0.75, 1.00, 1.25, 1.50]
+  quota_per_class: [2, 3, 10]
+
+sample_weight:
+  min_weight: 0.1
+  max_weight: 0.5
+  weight_function: linear
+
+thresholds_from: artifacts/pseudolabels/scheme03_smoke_sim/thresholds_selected.json

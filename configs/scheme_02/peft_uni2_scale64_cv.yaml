@@ -1,0 +1,4 @@
+_extends: peft_uni2_scale64_fold0.yaml
+run_name: s02a_uni2_scale64_cv
+skip_completed: true
+max_folds: null

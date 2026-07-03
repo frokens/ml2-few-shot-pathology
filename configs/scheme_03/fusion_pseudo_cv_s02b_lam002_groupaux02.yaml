@@ -1,0 +1,8 @@
+_extends: fusion_pseudo_cv_s02b_lam002.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_groupaux02
+
+# Opt-in training objective probe. It adds a hard-vs-easy auxiliary loss on the
+# same 5-class logits, so inference remains a single deterministic model head.
+group_aux_loss:
+  weight: 0.2
+  positive_classes: [Class_2, Class_3, Class_4]

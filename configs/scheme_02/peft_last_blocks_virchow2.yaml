@@ -1,0 +1,23 @@
+_extends: peft_cv.yaml
+run_name: s02_virchow2_last_blocks
+skip_completed: true
+gradient_checkpointing: false
+augmentation:
+  hflip_prob: 0.0
+  vflip_prob: 0.0
+  rot90_prob: 0.0
+  translate: 0.0
+  color_jitter: null
+experiments:
+  - name: last1_lr1e5_no_aug
+    mode: last_blocks
+    num_blocks: 1
+    train_norm: true
+    epochs: 80
+    batch_size: 8
+    adapter_lr: 0.00001
+    head_lr: 0.0005
+    weight_decay: 0.05
+    label_smoothing: 0.05
+    early_stopping_patience: 15
+    ema_decay: 0.999

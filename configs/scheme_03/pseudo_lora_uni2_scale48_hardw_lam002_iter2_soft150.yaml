@@ -1,0 +1,8 @@
+_extends: ../scheme_02/peft_uni2_scale48_hardw_cv.yaml
+run_name: s03_uni2_scale48_hardw_pseudo_lam002_iter2_soft150
+skip_completed: true
+inherit_from_scheme02_selection: true
+lambda_pseudo: 0.002
+min_pseudo_sample_weight: 0.0
+max_pseudo_per_class: null
+epochs: 60

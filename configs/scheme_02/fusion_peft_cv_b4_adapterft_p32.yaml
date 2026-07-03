@@ -1,0 +1,17 @@
+_extends: fusion_peft_cv.yaml
+run_name: scheme02b_b4_adapterft_p32_cv
+
+# Opt-in single-model sprint candidate. It starts from the existing fold-local
+# UNI2-h/CONCH adapters, then jointly fine-tunes only those adapters plus the
+# fusion head on each training fold. No prediction ensemble or TTA is used.
+batch_size: 1
+experiments:
+  - name: b4_uni_conch_adapterft_all4_concat_p32
+    composer: concat_linear
+    projection_dim: 32
+    dropout: 0.5
+    lr: 0.001
+    adapter_lr: 0.00002
+    weight_decay: 0.05
+    adapter_branches: [uni2_h, conch]
+    train_adapter_branches: true

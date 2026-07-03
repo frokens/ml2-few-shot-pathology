@@ -1,0 +1,4 @@
+_extends: pseudo_lora_uni2_scale64_hardw_lam002.yaml
+run_name: s03_uni2_scale64_hardw_pseudo_lam002_fold0
+skip_completed: false
+max_folds: 1

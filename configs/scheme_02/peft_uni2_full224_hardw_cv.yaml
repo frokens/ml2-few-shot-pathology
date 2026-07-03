@@ -1,0 +1,31 @@
+_extends: peft_uni2_no_ema.yaml
+run_name: s02a_uni2_full224_hardw_cv
+skip_completed: true
+max_folds: null
+
+class_weighting:
+  mode: manual
+  normalize_mean: true
+  weights:
+    Class_0: 1.00
+    Class_1: 1.00
+    Class_2: 1.00
+    Class_3: 1.25
+    Class_4: 1.10
+
+experiments:
+  - name: rslora_qkv_proj_r16_no_ema_full224_hardw
+    backbone_keys: [uni2_h]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    ema_decay: 0.0
+    target_policy: attention_qkv_proj
+    lora:
+      r: 16
+      alpha: 32
+      dropout: 0.05
+      bias: none
+      modules_to_save: [classifier]
+      use_rslora: true

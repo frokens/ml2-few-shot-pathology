@@ -1,0 +1,26 @@
+_extends: fusion_peft_cv.yaml
+run_name: scheme02b_b1_p32_scale80_cv
+
+# Opt-in Cell-Scale Adapter probe. The legacy configs keep the old 32->224
+# resize path; this config tests 32->80 centered on a 224 canvas per branch.
+branch_overrides:
+  uni2_h:
+    scale_to: 80
+    scale_pad_fill_rgb: [255, 255, 255]
+  virchow2:
+    scale_to: 80
+    scale_pad_fill_rgb: [255, 255, 255]
+  conch:
+    scale_to: 80
+    scale_pad_fill_rgb: [255, 255, 255]
+  h_optimus_0:
+    scale_to: 80
+    scale_pad_fill_rgb: [255, 255, 255]
+
+experiments:
+  - name: b1_uni_conch_adapters_all4_concat_p32_scale80
+    composer: concat_linear
+    projection_dim: 32
+    dropout: 0.5
+    weight_decay: 0.05
+    adapter_branches: [uni2_h, conch]

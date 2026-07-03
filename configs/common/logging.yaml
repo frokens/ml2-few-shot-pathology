@@ -1,0 +1,8 @@
+# Common logging configuration
+
+logging:
+  level: INFO
+  format: "%(asctime)s | %(levelname)-8s | %(name)s:%(funcName)s:%(lineno)d | %(message)s"
+  log_dir: runs/logs
+  rotation: 10 MB
+  retention: 30 days

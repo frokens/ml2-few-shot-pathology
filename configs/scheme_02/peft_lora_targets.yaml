@@ -1,0 +1,16 @@
+_extends: peft_cv.yaml
+run_name: s02_lora_targets
+skip_completed: true
+experiments:
+  - name: lora_qkv_r8
+    mode: lora
+    target_policy: attention_qkv
+    lora: {r: 8, alpha: 16, dropout: 0.05, bias: none, modules_to_save: [classifier]}
+  - name: lora_qkv_proj_r8
+    mode: lora
+    target_policy: attention_qkv_proj
+    lora: {r: 8, alpha: 16, dropout: 0.05, bias: none, modules_to_save: [classifier]}
+  - name: lora_qkv_proj_r16
+    mode: lora
+    target_policy: attention_qkv_proj
+    lora: {r: 16, alpha: 32, dropout: 0.05, bias: none, modules_to_save: [classifier]}

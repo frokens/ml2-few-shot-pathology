@@ -1,0 +1,9 @@
+_extends: teacher.yaml
+run_name: scheme03_teacher_uni2_scale64_hardw_pseudo_lam001
+oof_prediction_files:
+  - runs/scheme_03/s03_uni2_scale64_hardw_pseudo_lam001_20260612/predictions/oof_uni2_h__rslora_qkv_proj_r16_no_ema_scale64_hardw_pseudo__pseudo_lora.npz
+test_prediction_files:
+  - runs/scheme_03/s03_uni2_scale64_hardw_pseudo_lam001_single_refit_20260613/predictions/test_uni2_h__rslora_qkv_proj_r16_no_ema_scale64_hardw_pseudo__pseudo_lora__single_refit.npz
+teacher_sources_file: null
+optional_teacher_sources_file: null
+allow_prediction_search: false

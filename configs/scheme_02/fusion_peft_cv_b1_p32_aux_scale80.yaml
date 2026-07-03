@@ -1,0 +1,21 @@
+_extends: fusion_peft_cv.yaml
+run_name: scheme02b_b1_p32_aux_scale80_cv
+
+# Opt-in Cell-Scale Adapter probe for the frozen auxiliary branches only.
+# UNI2-h and CONCH keep the legacy 32->224 path because their fold-local
+# adapters were trained with that view.
+branch_overrides:
+  virchow2:
+    scale_to: 80
+    scale_pad_fill_rgb: [255, 255, 255]
+  h_optimus_0:
+    scale_to: 80
+    scale_pad_fill_rgb: [255, 255, 255]
+
+experiments:
+  - name: b1_uni_conch_adapters_aux_scale80_concat_p32
+    composer: concat_linear
+    projection_dim: 32
+    dropout: 0.5
+    weight_decay: 0.05
+    adapter_branches: [uni2_h, conch]

@@ -1,0 +1,7 @@
+split,class,count,path
+train,Class_0,50,train_few_shot/Class_0
+train,Class_1,50,train_few_shot/Class_1
+train,Class_2,50,train_few_shot/Class_2
+train,Class_3,50,train_few_shot/Class_3
+train,Class_4,50,train_few_shot/Class_4
+test,unlabeled,61881,test_shuffled

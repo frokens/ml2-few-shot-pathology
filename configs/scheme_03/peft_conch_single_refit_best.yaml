@@ -1,0 +1,4 @@
+_extends: ../scheme_02/peft_conch_no_ema.yaml
+run_name: s02a_conch_best_single_refit
+epochs: 26
+test_manifest: artifacts/dataset_audit/test_manifest.csv

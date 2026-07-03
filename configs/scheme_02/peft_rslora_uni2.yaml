@@ -1,0 +1,35 @@
+_extends: peft_cv.yaml
+run_name: s02a_rslora_uni2
+skip_completed: true
+gradient_checkpointing: false
+persistent_workers: true
+prefetch_factor: 2
+experiments:
+  - name: rslora_qkv_proj_r16
+    backbone_keys: [uni2_h]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    target_policy: attention_qkv_proj
+    lora:
+      r: 16
+      alpha: 32
+      dropout: 0.05
+      bias: none
+      modules_to_save: [classifier]
+      use_rslora: true
+  - name: rslora_qkv_proj_r32
+    backbone_keys: [uni2_h]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    target_policy: attention_qkv_proj
+    lora:
+      r: 32
+      alpha: 64
+      dropout: 0.05
+      bias: none
+      modules_to_save: [classifier]
+      use_rslora: true

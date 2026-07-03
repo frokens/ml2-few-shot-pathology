@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local environments and caches
+.env/
+.venv/
+venv/
+conda_env/
+hf_home/
+torch_home/
+.cache/
+.tmp/
+
+# Model weights and checkpoints
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Runtime-heavy outputs intentionally excluded from this export
+runs/
+logs/
+artifacts/features/
+artifacts/teachers/
+artifacts/pseudolabels/
+artifacts/model_exports/
+
+# Full course datasets are not included in the GitHub export
+train_few_shot/
+test_shuffled/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+

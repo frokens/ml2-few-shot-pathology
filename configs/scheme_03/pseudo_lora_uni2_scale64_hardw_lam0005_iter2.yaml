@@ -1,0 +1,3 @@
+_extends: pseudo_lora_uni2_scale64_hardw_lam0005.yaml
+run_name: s03_uni2_scale64_hardw_pseudo_lam0005_iter2
+skip_completed: true

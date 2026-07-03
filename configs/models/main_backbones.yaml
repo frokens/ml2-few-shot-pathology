@@ -1,0 +1,61 @@
+# Main backbone candidate configuration
+# Only registry keys are referenced — paths resolved from models.lock.yaml.
+
+backbones:
+  uni2_h:
+    registry_key: uni2_h
+    library: timm
+    feature_dim: 1536
+    preferred_dtype: float16
+    supported_tta:
+      - none
+      - d4
+      - geom6
+
+  virchow2:
+    registry_key: virchow2
+    library: timm
+    feature_dim: 2560
+    preferred_dtype: float16
+    supported_tta:
+      - none
+      - d4
+      - geom6
+
+  conch:
+    registry_key: conch
+    library: conch
+    loader: conch.open_clip_custom.create_model_from_pretrained
+    model_name: conch_ViT-B-16
+    feature_dim: 512
+    preferred_dtype: float16
+    official_usage:
+      image_linear_probe: "encode_image(proj_contrast=False, normalize=False)"
+      prompt_probe: "encode_image(proj_contrast=True, normalize=True) + zero_shot_classifier"
+    supported_tta:
+      - none
+      - d4
+      - geom6
+
+  h_optimus_0:
+    registry_key: h_optimus_0
+    library: timm
+    feature_dim: 1536
+    preferred_dtype: float16
+    model_kwargs:
+      num_classes: 0
+    preprocessing:
+      input_size: 224
+    supported_tta:
+      - none
+      - d4
+      - geom6
+
+# Default extraction settings
+extraction:
+  batch_size: 32
+  num_workers: 4
+  pin_memory: true
+  prefetch_factor: 2
+  amp: true
+  amp_dtype: bfloat16

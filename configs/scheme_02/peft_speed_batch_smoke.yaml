@@ -1,0 +1,35 @@
+_extends: peft_cv.yaml
+run_name: s02a_speed_batch_smoke
+skip_completed: true
+gradient_checkpointing: false
+persistent_workers: true
+prefetch_factor: 2
+max_folds: 1
+epochs: 2
+max_train_batches: 4
+max_eval_batches: 4
+experiments:
+  - name: speed_uni_qkv_proj_r16_b16_no_ckpt
+    backbone_keys: [uni2_h]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    target_policy: attention_qkv_proj
+    lora: {r: 16, alpha: 32, dropout: 0.05, bias: none, modules_to_save: [classifier]}
+  - name: speed_uni_qkv_proj_r16_b24_no_ckpt
+    backbone_keys: [uni2_h]
+    mode: lora
+    batch_size: 24
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    target_policy: attention_qkv_proj
+    lora: {r: 16, alpha: 32, dropout: 0.05, bias: none, modules_to_save: [classifier]}
+  - name: speed_hoptimus_qkv_proj_r16_b16_no_ckpt
+    backbone_keys: [h_optimus_0]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    target_policy: attention_qkv_proj
+    lora: {r: 16, alpha: 32, dropout: 0.05, bias: none, modules_to_save: [classifier]}

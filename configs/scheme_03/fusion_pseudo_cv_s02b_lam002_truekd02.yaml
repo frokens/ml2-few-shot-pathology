@@ -1,0 +1,7 @@
+_extends: fusion_pseudo_cv_s02b_lam002.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_truekd02
+
+# Training-only distillation from fold-safe OOF teachers. The final model is
+# still a single fusion student; no prediction-level ensemble or TTA is used.
+true_soft_labels: artifacts/analysis/scheme03_oof_complement/a_lam002_family_20260612/true_soft_labels_oracle_blend035.csv
+true_soft_loss_scale: 0.2

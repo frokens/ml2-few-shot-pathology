@@ -1,0 +1,63 @@
+run_name: s01_mild_color
+train_manifest: artifacts/dataset_audit/train_manifest.csv
+test_manifest: artifacts/dataset_audit/test_manifest.csv
+output_dir: artifacts/features/scheme_01/s01_mild_color
+tta: d4
+batch_size: 24
+skip_completed: true
+color_tta:
+  strength: 0.08
+  channels: [brightness, contrast, saturation]
+backbones:
+  - key: uni2_h
+    backend: timm
+    model_name: hf-hub:MahmoodLab/UNI2-h
+    lock_key: uni2_h
+    input_size: 224
+    pretrained: true
+    feature_dim: 1536
+    model_kwargs:
+      img_size: 224
+      patch_size: 14
+      depth: 24
+      num_heads: 24
+      init_values: 1.0e-5
+      embed_dim: 1536
+      mlp_ratio: 5.33334
+      num_classes: 0
+      no_embed_class: true
+      mlp_layer: timm.layers.SwiGLUPacked
+      act_layer: torch.nn.SiLU
+      reg_tokens: 8
+      dynamic_img_size: true
+  - key: virchow2
+    backend: timm
+    model_name: hf-hub:paige-ai/Virchow2
+    lock_key: virchow2
+    input_size: 224
+    pretrained: true
+    feature_dim: 2560
+    feature_policy: virchow2_official
+    model_kwargs:
+      mlp_layer: timm.layers.SwiGLUPacked
+      act_layer: torch.nn.SiLU
+  - key: conch
+    backend: conch
+    model_name: conch_ViT-B-16
+    lock_key: conch
+    input_size: 224
+    pretrained: true
+    feature_mode: linear_probe
+  - key: h_optimus_0
+    backend: timm
+    model_name: hf-hub:bioptimus/H-optimus-0
+    lock_key: h_optimus_0
+    input_size: 224
+    pretrained: true
+    feature_dim: 1536
+    model_kwargs:
+      num_classes: 0
+      init_values: 1.0e-5
+      dynamic_img_size: false
+    mean: [0.707223, 0.578729, 0.703617]
+    std: [0.211883, 0.230117, 0.177517]

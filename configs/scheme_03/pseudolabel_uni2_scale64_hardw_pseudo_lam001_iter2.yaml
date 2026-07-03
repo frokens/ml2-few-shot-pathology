@@ -1,0 +1,3 @@
+_extends: pseudolabel_uni2_scale64_hardw.yaml
+run_name: scheme03_pseudolabel_uni2_scale64_hardw_pseudo_lam001_iter2
+thresholds_from: artifacts/pseudolabels/uni2_scale64_hardw_pseudo_lam001_iter2_simulation/thresholds_selected.json

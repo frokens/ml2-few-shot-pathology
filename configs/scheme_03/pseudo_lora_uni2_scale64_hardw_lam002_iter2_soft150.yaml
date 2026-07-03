@@ -1,0 +1,4 @@
+_extends: pseudo_lora_uni2_scale64_hardw_lam001_iter2_soft150.yaml
+run_name: s03_uni2_scale64_hardw_pseudo_lam002_iter2_soft150
+lambda_pseudo: 0.002
+skip_completed: true

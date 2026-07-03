@@ -1,0 +1,7 @@
+_extends: fusion_pseudo_cv_s02b_lam002.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_cap20
+
+# A_lam001 and A_lam002 produced identical OOF predictions while both degraded
+# the supervised baseline. Keep the same soft-label strength, but reduce the
+# pseudo row pressure so each fold sees about 200 true rows + 60 pseudo rows.
+max_pseudo_per_class: 20

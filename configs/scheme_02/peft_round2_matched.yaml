@@ -1,0 +1,86 @@
+_extends: peft_cv.yaml
+run_name: s02a_round2_matched
+skip_completed: true
+gradient_checkpointing: false
+persistent_workers: true
+prefetch_factor: 2
+experiments:
+  - name: lora_d4_style_qkv_proj_r16
+    backbone_keys: [uni2_h, h_optimus_0]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    target_policy: attention_qkv_proj
+    augmentation:
+      hflip_prob: 0.5
+      vflip_prob: 0.5
+      rot90_prob: 1.0
+      translate: 0.0
+      color_jitter: null
+    lora: {r: 16, alpha: 32, dropout: 0.05, bias: none, modules_to_save: [classifier]}
+  - name: lora_d4_style_qkv_r8_mixup
+    backbone_keys: [h_optimus_0]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    target_policy: attention_qkv
+    augmentation:
+      hflip_prob: 0.5
+      vflip_prob: 0.5
+      rot90_prob: 1.0
+      translate: 0.0
+      color_jitter: null
+    mixup:
+      alpha: 0.2
+      probability: 0.5
+    lora: {r: 8, alpha: 16, dropout: 0.05, bias: none, modules_to_save: [classifier]}
+  - name: lora_single_low_lr_qkv_proj_r16
+    backbone_keys: [virchow2]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0003
+    adapter_lr: 0.00002
+    weight_decay: 0.05
+    target_policy: attention_qkv_proj
+    augmentation:
+      hflip_prob: 0.0
+      vflip_prob: 0.0
+      rot90_prob: 0.0
+      translate: 0.0
+      color_jitter: null
+    lora: {r: 16, alpha: 32, dropout: 0.10, bias: none, modules_to_save: [classifier]}
+  - name: lora_d4_style_low_lr_qkv_proj_r16
+    backbone_keys: [virchow2]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0003
+    adapter_lr: 0.00002
+    weight_decay: 0.05
+    target_policy: attention_qkv_proj
+    augmentation:
+      hflip_prob: 0.5
+      vflip_prob: 0.5
+      rot90_prob: 1.0
+      translate: 0.0
+      color_jitter: null
+    lora: {r: 16, alpha: 32, dropout: 0.10, bias: none, modules_to_save: [classifier]}
+  - name: lora_d4_mild_color_qkv_proj_r16
+    backbone_keys: [conch]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    target_policy: attention_qkv_proj
+    augmentation:
+      hflip_prob: 0.5
+      vflip_prob: 0.5
+      rot90_prob: 1.0
+      translate: 0.05
+      color_jitter:
+        brightness: 0.08
+        contrast: 0.08
+        saturation: 0.04
+        hue: 0.0
+    lora: {r: 16, alpha: 32, dropout: 0.05, bias: none, modules_to_save: [classifier]}

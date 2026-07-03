@@ -1,0 +1,14 @@
+run_name: s03_pseudo_a_lam002_class_bias
+oof_prediction: runs/scheme_02/s03_pseudo_a_lam002_cv/predictions/oof_fusion__b1_uni_conch_adapters_all4_concat_p32_reg.npz
+out_dir: artifacts/analysis/scheme03_class_bias/a_lam002
+seed: 2026
+n_splits: 5
+
+# Targeted grid around the observed A_lam002 decision-boundary signal.
+# Promotion evidence must come from nested validation, not all-OOF fitting.
+bias_grid:
+  Class_0: [-0.6, -0.4, -0.2]
+  Class_1: [-0.2, 0.0, 0.2]
+  Class_2: [-0.6, -0.4, -0.2]
+  Class_3: [0.0, 0.2, 0.4]
+  Class_4: [-0.4, -0.2, 0.0]

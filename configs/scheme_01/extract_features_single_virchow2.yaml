@@ -1,0 +1,19 @@
+run_name: s01_single_virchow2
+train_manifest: artifacts/dataset_audit/train_manifest.csv
+test_manifest: artifacts/dataset_audit/test_manifest.csv
+output_dir: artifacts/features/scheme_01/s01_single_virchow2
+tta: none
+batch_size: 32
+skip_completed: true
+backbones:
+  - key: virchow2
+    backend: timm
+    model_name: hf-hub:paige-ai/Virchow2
+    lock_key: virchow2
+    input_size: 224
+    pretrained: true
+    feature_dim: 2560
+    feature_policy: virchow2_official
+    model_kwargs:
+      mlp_layer: timm.layers.SwiGLUPacked
+      act_layer: torch.nn.SiLU

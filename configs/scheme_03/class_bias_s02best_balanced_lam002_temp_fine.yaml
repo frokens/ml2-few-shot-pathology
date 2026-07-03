@@ -1,0 +1,14 @@
+run_name: s03_pseudo_s02best_balanced_lam002_class_bias_temp_fine
+oof_prediction: runs/scheme_02/s03_pseudo_s02best_balanced_lam002_cv_20260612/predictions/oof_fusion__b1_uni_conch_adapters_all4_concat_p32_reg.npz
+out_dir: artifacts/analysis/scheme03_class_bias/s02best_balanced_lam002_temp_fine
+seed: 2026
+n_splits: 5
+
+temperature_grid: [0.70, 0.85, 1.00, 1.15, 1.30]
+
+bias_grid:
+  Class_0: [-0.55, -0.45, -0.35, -0.25]
+  Class_1: [-0.05, 0.05, 0.15, 0.25]
+  Class_2: [-0.55, -0.45, -0.35, -0.25]
+  Class_3: [0.10, 0.20, 0.30, 0.40, 0.50]
+  Class_4: [-0.35, -0.25, -0.15, -0.05]

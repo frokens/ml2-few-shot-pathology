@@ -1,0 +1,13 @@
+_extends: fusion_peft_cv.yaml
+run_name: scheme02b_b1_p32_mlp64_cv
+
+# Opt-in nonlinear fusion head. The base fusion architecture and branch
+# adapters are unchanged; hidden_dim=0 remains the legacy linear classifier.
+experiments:
+  - name: b1_uni_conch_adapters_all4_concat_p32_mlp64
+    composer: concat_linear
+    projection_dim: 32
+    classifier_hidden_dim: 64
+    dropout: 0.5
+    weight_decay: 0.05
+    adapter_branches: [uni2_h, conch]

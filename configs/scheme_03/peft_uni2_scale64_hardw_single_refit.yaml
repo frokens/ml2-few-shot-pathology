@@ -1,0 +1,4 @@
+_extends: ../scheme_02/peft_uni2_scale64_hardw_cv.yaml
+run_name: s02a_uni2_scale64_hardw_single_refit
+epochs: 35
+test_manifest: artifacts/dataset_audit/test_manifest.csv

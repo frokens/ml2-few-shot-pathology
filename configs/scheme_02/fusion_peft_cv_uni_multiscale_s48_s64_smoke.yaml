@@ -1,0 +1,7 @@
+_extends: fusion_peft_cv_uni_multiscale_s48_s64.yaml
+run_name: scheme02b_uni_multiscale_s48_s64_smoke
+
+max_folds: 1
+epochs: 1
+max_train_batches: 1
+max_eval_batches: 1

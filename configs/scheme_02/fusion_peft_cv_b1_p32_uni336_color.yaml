@@ -1,0 +1,16 @@
+_extends: fusion_peft_cv.yaml
+run_name: scheme02b_b1_p32_uni336_color_cv
+batch_size: 2
+
+# Opt-in sprint candidate: keep the current best single fusion structure, but
+# give the UNI2-h branch more spatial detail and mild train-time color jitter.
+branch_overrides:
+  uni2_h:
+    input_size: 336
+
+augmentation:
+  color_jitter:
+    brightness: 0.06
+    contrast: 0.06
+    saturation: 0.04
+    hue: 0.0

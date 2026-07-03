@@ -1,0 +1,16 @@
+run_name: s01_strategy_fusion
+fusion_id: all4_d4_equal_blocks
+output_dir: artifacts/features/scheme_01
+sources:
+  - name: uni2_h_d4
+    path: artifacts/features/scheme_01/s01_d4/uni2_h/uni2_h_timm_tta-d4_5eb18eca11.npz
+    weight: 1.0
+  - name: virchow2_d4
+    path: artifacts/features/scheme_01/s01_d4/virchow2/virchow2_timm_tta-d4_fd647b707a.npz
+    weight: 1.0
+  - name: conch_d4
+    path: artifacts/features/scheme_01/s01_d4/conch/conch_conch_tta-d4_effa33cf57.npz
+    weight: 1.0
+  - name: h_optimus_0_d4
+    path: artifacts/features/scheme_01/s01_d4/h_optimus_0/h_optimus_0_timm_tta-d4_9ffa041b4c.npz
+    weight: 1.0

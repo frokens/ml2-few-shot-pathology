@@ -1,0 +1,7 @@
+_extends: teacher.yaml
+run_name: scheme03_teacher_s01
+oof_prediction_files: []
+test_prediction_files: []
+oof_prediction_search_dir: null
+test_prediction_search_dir: null
+teacher_sources_file: artifacts/selection/scheme01_teacher_predictions.txt

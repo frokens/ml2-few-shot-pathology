@@ -1,0 +1,12 @@
+run_name: s01_cell_stats
+train_manifest: artifacts/dataset_audit/train_manifest.csv
+test_manifest: artifacts/dataset_audit/test_manifest.csv
+output_dir: artifacts/features/scheme_01/s01_cell_stats
+tta: none
+batch_size: 256
+skip_completed: true
+backbones:
+  - key: cell_stats
+    backend: cell_stats
+    input_size: 32
+    batch_size: 256

@@ -1,0 +1,14 @@
+_extends: peft_cv.yaml
+run_name: s02_aug_no_aug
+skip_completed: true
+augmentation:
+  hflip_prob: 0.0
+  vflip_prob: 0.0
+  rot90_prob: 0.0
+  translate: 0.0
+  color_jitter: null
+experiments:
+  - name: lora_qkv_r8_no_aug
+    mode: lora
+    target_policy: attention_qkv
+    lora: {r: 8, alpha: 16, dropout: 0.05, bias: none, modules_to_save: [classifier]}

@@ -1,0 +1,28 @@
+_extends: fusion_peft_cv.yaml
+classical_run_name: s02b_cached_svm_probe_20260612
+
+classical_diagnostics:
+  - name: b0_scheme01_strategy_svm_probe_all4
+    reuse_features_from_run: s02b_b0_scheme01_feature_strategy_diag_v2_20260610
+    reuse_diagnostic_name: b0_raw_classical_scheme01_strategy
+    reuse_branch_keys: [uni2_h, virchow2, conch, h_optimus_0]
+    fusion_heads: &svm_probe_heads
+      - {name: svc_linear_C0.03_balanced, family: svc_linear, C: 0.03, class_weight: balanced}
+      - {name: svc_linear_C0.1_balanced, family: svc_linear, C: 0.1, class_weight: balanced}
+      - {name: svc_linear_C0.3_balanced, family: svc_linear, C: 0.3, class_weight: balanced}
+      - {name: svc_rbf_C0.3_scale_balanced, family: svc_rbf, C: 0.3, gamma: scale, class_weight: balanced}
+      - {name: svc_rbf_C1_scale_balanced, family: svc_rbf, C: 1.0, gamma: scale, class_weight: balanced}
+      - {name: svc_rbf_C3_scale_balanced, family: svc_rbf, C: 3.0, gamma: scale, class_weight: balanced}
+      - {name: pca32_logreg_C1_balanced, family: pca_logreg, n_components: 32, C: 1.0, class_weight: balanced}
+      - {name: pca48_logreg_C1_balanced, family: pca_logreg, n_components: 48, C: 1.0, class_weight: balanced}
+      - {name: hierarchical_C1_balanced, family: hierarchical_hard, hard_classes: [2, 3, 4], C: 1.0, class_weight: balanced}
+  - name: b0_scheme01_strategy_svm_probe_uni_conch_h
+    reuse_features_from_run: s02b_b0_scheme01_feature_strategy_diag_v2_20260610
+    reuse_diagnostic_name: b0_raw_classical_scheme01_strategy
+    reuse_branch_keys: [uni2_h, conch, h_optimus_0]
+    fusion_heads: *svm_probe_heads
+  - name: b0_scheme01_strategy_svm_probe_uni_conch
+    reuse_features_from_run: s02b_b0_scheme01_feature_strategy_diag_v2_20260610
+    reuse_diagnostic_name: b0_raw_classical_scheme01_strategy
+    reuse_branch_keys: [uni2_h, conch]
+    fusion_heads: *svm_probe_heads

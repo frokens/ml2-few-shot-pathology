@@ -1,0 +1,20 @@
+_extends: pseudolabel_uni2_scale64_hardw.yaml
+run_name: scheme03_pseudolabel_uni2_scale48_hardw_imgadapter_soft150
+thresholds_from: artifacts/pseudolabels/uni2_scale48_hardw_imgadapter_soft150_simulation/thresholds_selected.json
+
+balanced_soft_expansion:
+  enabled: true
+  core_quota: 50
+  expanded_quota: 150
+  rank_weight_multipliers:
+    - start_rank: 1
+      end_rank: 50
+      multiplier: 1.0
+    - start_rank: 51
+      end_rank: 100
+      multiplier: 0.25
+    - start_rank: 101
+      end_rank: 150
+      multiplier: 0.10
+
+effective_weight_lambdas: [0.002]

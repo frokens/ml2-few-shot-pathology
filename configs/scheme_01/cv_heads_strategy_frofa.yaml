@@ -1,0 +1,93 @@
+run_name: strategy_frofa_cv
+features_dir: artifacts/features/scheme_01/s01_strategy_fusion
+run_dir: runs/scheme_01/strategy_frofa_cv
+seed: 2026
+n_splits: 5
+n_repeats: 1
+skip_completed: true
+ensemble:
+  enabled: false
+heads:
+  - name: logreg_C1_baseline
+    family: logreg
+    C: 1.0
+  - name: logreg_C0.3_frofa_hard_l0.05x1
+    family: logreg
+    C: 0.3
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: [2, 3, 4]
+      level: 0.05
+      copies: 1
+  - name: logreg_C1_frofa_hard_l0.05x1
+    family: logreg
+    C: 1.0
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: [2, 3, 4]
+      level: 0.05
+      copies: 1
+  - name: logreg_C3_frofa_hard_l0.05x1
+    family: logreg
+    C: 3.0
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: [2, 3, 4]
+      level: 0.05
+      copies: 1
+  - name: logreg_C0.3_frofa_hard_l0.10x2
+    family: logreg
+    C: 0.3
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: [2, 3, 4]
+      level: 0.10
+      copies: 2
+  - name: logreg_C1_frofa_hard_l0.10x2
+    family: logreg
+    C: 1.0
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: [2, 3, 4]
+      level: 0.10
+      copies: 2
+  - name: logreg_C3_frofa_hard_l0.10x2
+    family: logreg
+    C: 3.0
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: [2, 3, 4]
+      level: 0.10
+      copies: 2
+  - name: logreg_C0.3_frofa_hard_l0.20x2
+    family: logreg
+    C: 0.3
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: [2, 3, 4]
+      level: 0.20
+      copies: 2
+  - name: logreg_C1_frofa_hard_l0.20x2
+    family: logreg
+    C: 1.0
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: [2, 3, 4]
+      level: 0.20
+      copies: 2
+  - name: logreg_C3_frofa_hard_l0.20x2
+    family: logreg
+    C: 3.0
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: [2, 3, 4]
+      level: 0.20
+      copies: 2
+  - name: logreg_C1_frofa_all_l0.10x1
+    family: logreg
+    C: 1.0
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: all
+      level: 0.10
+      copies: 1

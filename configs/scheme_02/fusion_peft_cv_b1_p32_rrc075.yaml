@@ -1,0 +1,9 @@
+_extends: fusion_peft_cv.yaml
+run_name: scheme02b_b1_p32_rrc075_cv
+
+# Opt-in train-time scale jitter for small target patches. Evaluation remains
+# the default deterministic resize/center preprocess.
+augmentation:
+  random_resized_crop:
+    scale: [0.75, 1.00]
+    ratio: [0.90, 1.10]

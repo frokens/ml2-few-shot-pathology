@@ -1,0 +1,11 @@
+_extends: fusion_pseudo_cv_s02b_lam002.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_colorjitter
+
+# Opt-in train-time stain/color robustness probe. This changes only training
+# augmentation for this candidate; evaluation remains single-view.
+augmentation:
+  color_jitter:
+    brightness: 0.08
+    contrast: 0.08
+    saturation: 0.08
+    hue: 0.02

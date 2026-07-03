@@ -1,0 +1,20 @@
+run_name: scheme03_pseudo_heads_main4
+seed: 2026
+class_names: [Class_0, Class_1, Class_2, Class_3, Class_4]
+
+lambda_pseudo: 0.2
+
+heads:
+  - name: logreg_pseudo_C0.3
+    family: logreg
+    C: 0.3
+    max_iter: 2000
+  - name: logreg_pseudo_C1
+    family: logreg
+    C: 1.0
+    max_iter: 2000
+  - name: logreg_pseudo_C3
+    family: logreg
+    C: 3.0
+    max_iter: 2000
+

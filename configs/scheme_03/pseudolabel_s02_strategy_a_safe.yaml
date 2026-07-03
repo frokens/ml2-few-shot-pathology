@@ -1,0 +1,43 @@
+_extends: pseudolabel_s02_best.yaml
+run_name: scheme03_pseudolabel_s02_strategy_a_safe
+
+# Strategy A: only use classes that the OOF simulation says are reliable.
+policy_source: fixed
+thresholds_from: artifacts/pseudolabels/s02_strategy_a_simulation/thresholds_selected.json
+effective_weight_lambdas: [0.02, 0.05]
+
+policy:
+  prob_top1:
+    Class_0: 0.85
+    Class_1: 0.85
+    Class_2: 0.90
+    Class_3: 1.00
+    Class_4: 1.00
+  margin:
+    Class_0: 0.05
+    Class_1: 0.05
+    Class_2: 0.10
+    Class_3: 1.00
+    Class_4: 1.00
+  entropy_max:
+    Class_0: 0.50
+    Class_1: 0.35
+    Class_2: 0.50
+    Class_3: 0.00
+    Class_4: 0.00
+  quota:
+    Class_0: 100
+    Class_1: 80
+    Class_2: 30
+    Class_3: 0
+    Class_4: 0
+  min_teacher_agreement:
+    Class_0: 0.0
+    Class_1: 0.0
+    Class_2: 0.0
+    Class_3: 1.0
+    Class_4: 1.0
+  sample_weight:
+    min_weight: 0.10
+    max_weight: 0.30
+    weight_function: linear

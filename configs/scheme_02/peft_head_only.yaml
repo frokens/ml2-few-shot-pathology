@@ -1,0 +1,13 @@
+_extends: peft_cv.yaml
+run_name: s02_head_only
+skip_completed: true
+experiments:
+  - name: head_only_lp
+    mode: head_only
+    epochs: 40
+    batch_size: 12
+    head_lr: 0.001
+    weight_decay: 0.01
+    label_smoothing: 0.0
+    early_stopping_patience: 10
+    ema_decay: 0.0

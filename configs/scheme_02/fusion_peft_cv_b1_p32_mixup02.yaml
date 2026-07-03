@@ -1,0 +1,8 @@
+_extends: fusion_peft_cv.yaml
+run_name: scheme02b_b1_p32_mixup02_cv
+
+# Opt-in supervised fusion-head regularization. The same mixup permutation is
+# applied to every branch tensor, so the model remains a single fusion model.
+mixup:
+  alpha: 0.2
+  probability: 1.0

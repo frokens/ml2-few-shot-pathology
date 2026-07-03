@@ -1,0 +1,21 @@
+_extends: peft_cv.yaml
+run_name: s02a_conch_no_ema
+skip_completed: true
+gradient_checkpointing: false
+persistent_workers: true
+prefetch_factor: 2
+experiments:
+  - name: lora_qkv_proj_r16_no_ema
+    backbone_keys: [conch]
+    mode: lora
+    batch_size: 8
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    ema_decay: 0.0
+    target_policy: attention_qkv_proj
+    lora:
+      r: 16
+      alpha: 32
+      dropout: 0.05
+      bias: none
+      modules_to_save: [classifier]

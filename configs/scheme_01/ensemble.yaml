@@ -1,0 +1,7 @@
+run_name: scheme01_seed_frozen
+test_prediction_files: []
+test_prediction_sources_file: artifacts/selection/scheme01_teacher_predictions.txt
+prediction_search_dir: null
+allow_prediction_search: false
+submission_dir: artifacts/submissions/scheme_01_seed_frozen
+test_manifest: artifacts/dataset_audit/test_manifest.csv

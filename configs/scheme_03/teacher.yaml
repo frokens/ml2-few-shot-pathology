@@ -1,0 +1,17 @@
+run_name: scheme03_teacher_main4
+seed: 2026
+class_names: [Class_0, Class_1, Class_2, Class_3, Class_4]
+
+# Formal runs must use teacher_sources_file from Scheme01/Scheme02 selection.
+# Directory search is debug-only and must set allow_prediction_search: true.
+teacher_sources_file: null
+optional_teacher_sources_file: null
+oof_prediction_files: []
+test_prediction_files: []
+allow_prediction_search: false
+oof_prediction_search_dir: null
+oof_pattern: oof_*.npz
+test_prediction_search_dir: null
+test_pattern: test_*.npz
+
+temperature_grid: [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0, 5.0]

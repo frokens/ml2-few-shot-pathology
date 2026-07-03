@@ -1,0 +1,15 @@
+_extends: fusion_pseudo_cv_s02b_lam002.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_hardw
+
+# Sprint candidate: keep the proven A_lam002 pseudo recipe, but make the loss
+# care more about the validation-hard classes. This is opt-in and does not
+# affect any earlier Scheme02/Scheme03 config.
+class_weighting:
+  mode: manual
+  normalize_mean: true
+  weights:
+    Class_0: 1.0
+    Class_1: 1.0
+    Class_2: 1.2
+    Class_3: 1.35
+    Class_4: 1.25

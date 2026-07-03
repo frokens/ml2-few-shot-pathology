@@ -1,0 +1,3 @@
+_extends: pseudo_lora_lam005.yaml
+run_name: s03_pseudo_lora_lam010
+lambda_pseudo: 0.10

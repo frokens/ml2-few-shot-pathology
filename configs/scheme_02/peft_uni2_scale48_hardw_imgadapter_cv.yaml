@@ -1,0 +1,25 @@
+_extends: peft_uni2_scale48_hardw_cv.yaml
+run_name: s02a_uni2_scale48_hardw_imgadapter_cv
+skip_completed: true
+max_folds: null
+
+experiments:
+  - name: rslora_qkv_proj_r16_no_ema_scale48_hardw_imgadapter
+    backbone_keys: [uni2_h]
+    mode: lora
+    batch_size: 16
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    ema_decay: 0.0
+    target_policy: attention_qkv_proj
+    image_adapter:
+      type: residual_conv
+      hidden_channels: 16
+      residual_scale: 0.10
+    lora:
+      r: 16
+      alpha: 32
+      dropout: 0.05
+      bias: none
+      modules_to_save: [classifier]
+      use_rslora: true

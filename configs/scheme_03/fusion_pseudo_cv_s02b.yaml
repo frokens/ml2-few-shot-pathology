@@ -1,0 +1,11 @@
+_extends: ../scheme_02/fusion_peft_cv.yaml
+run_name: s03_scheme02b_best_pseudo_cv
+test_manifest: artifacts/dataset_audit/test_manifest.csv
+source_summary: runs/scheme_02/s02b_b1_lowcap_20260611/metrics/summary.json
+
+# Pseudo rows are selected from the unlabeled test manifest by the calibrated
+# Scheme02b teacher. The CV command never writes a formal test prediction.
+lambda_pseudo: 0.05
+min_pseudo_sample_weight: 0.2
+max_pseudo_per_class: null
+test_prediction_mode: none

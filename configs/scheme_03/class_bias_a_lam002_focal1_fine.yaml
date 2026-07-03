@@ -1,0 +1,14 @@
+run_name: s03_pseudo_a_lam002_focal1_class_bias_fine
+oof_prediction: runs/scheme_02/s03_pseudo_a_lam002_focal1_cv/predictions/oof_fusion__b1_uni_conch_adapters_all4_concat_p32_reg.npz
+out_dir: artifacts/analysis/scheme03_class_bias/a_lam002_focal1_fine
+seed: 2026
+n_splits: 5
+
+# Fine search reuses the promotion-safe nested protocol. This is diagnostic for
+# the focal-loss candidate and does not change existing A_lam002 artifacts.
+bias_grid:
+  Class_0: [-0.55, -0.45, -0.35, -0.25]
+  Class_1: [-0.05, 0.05, 0.15, 0.25]
+  Class_2: [-0.55, -0.45, -0.35, -0.25]
+  Class_3: [0.10, 0.20, 0.30, 0.40, 0.50]
+  Class_4: [-0.35, -0.25, -0.15, -0.05]

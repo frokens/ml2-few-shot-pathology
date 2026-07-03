@@ -1,0 +1,43 @@
+_extends: peft_uni2_no_ema.yaml
+run_name: s02a_adapted_uni2_no_ema_frofa_grid
+skip_completed: true
+adapted_heads:
+  - {name: logreg_C0.3, family: logreg, C: 0.3}
+  - {name: logreg_C1, family: logreg, C: 1.0}
+  - {name: logreg_C3, family: logreg, C: 3.0}
+  - name: logreg_C0.3_frofa_hard_l0.05x1
+    family: logreg
+    C: 0.3
+    train_augmentation: {type: frofa_brightness_c2, target_classes: [2, 3, 4], level: 0.05, copies: 1}
+  - name: logreg_C0.3_frofa_hard_l0.10x1
+    family: logreg
+    C: 0.3
+    train_augmentation: {type: frofa_brightness_c2, target_classes: [2, 3, 4], level: 0.10, copies: 1}
+  - name: logreg_C0.3_frofa_hard_l0.20x1
+    family: logreg
+    C: 0.3
+    train_augmentation: {type: frofa_brightness_c2, target_classes: [2, 3, 4], level: 0.20, copies: 1}
+  - name: logreg_C1_frofa_hard_l0.05x1
+    family: logreg
+    C: 1.0
+    train_augmentation: {type: frofa_brightness_c2, target_classes: [2, 3, 4], level: 0.05, copies: 1}
+  - name: logreg_C1_frofa_hard_l0.10x1
+    family: logreg
+    C: 1.0
+    train_augmentation: {type: frofa_brightness_c2, target_classes: [2, 3, 4], level: 0.10, copies: 1}
+  - name: logreg_C1_frofa_hard_l0.20x1
+    family: logreg
+    C: 1.0
+    train_augmentation: {type: frofa_brightness_c2, target_classes: [2, 3, 4], level: 0.20, copies: 1}
+  - name: logreg_C3_frofa_hard_l0.05x1
+    family: logreg
+    C: 3.0
+    train_augmentation: {type: frofa_brightness_c2, target_classes: [2, 3, 4], level: 0.05, copies: 1}
+  - name: logreg_C3_frofa_hard_l0.10x1
+    family: logreg
+    C: 3.0
+    train_augmentation: {type: frofa_brightness_c2, target_classes: [2, 3, 4], level: 0.10, copies: 1}
+  - name: logreg_C3_frofa_hard_l0.20x1
+    family: logreg
+    C: 3.0
+    train_augmentation: {type: frofa_brightness_c2, target_classes: [2, 3, 4], level: 0.20, copies: 1}

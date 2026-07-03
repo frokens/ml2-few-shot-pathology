@@ -1,0 +1,36 @@
+run_name: fused_single_cell_stats_cv
+features_dir: artifacts/features/scheme_01/s01_fused_single_cell_stats
+run_dir: runs/scheme_01/fused_single_cell_stats_cv
+seed: 2026
+n_splits: 5
+n_repeats: 1
+skip_completed: true
+ensemble:
+  enabled: false
+heads:
+  - name: logreg_C0.01
+    family: logreg
+    C: 0.01
+  - name: logreg_C0.03
+    family: logreg
+    C: 0.03
+  - name: logreg_C0.1
+    family: logreg
+    C: 0.1
+  - name: logreg_C0.3
+    family: logreg
+    C: 0.3
+  - name: logreg_C1
+    family: logreg
+    C: 1.0
+  - name: logreg_C3
+    family: logreg
+    C: 3.0
+  - name: logreg_C1_frofa_hard_l0.05x1
+    family: logreg
+    C: 1.0
+    train_augmentation:
+      type: frofa_brightness_c2
+      target_classes: [2, 3, 4]
+      level: 0.05
+      copies: 1

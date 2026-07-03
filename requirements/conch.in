@@ -1,0 +1,5 @@
+# Optional official CONCH package for Scheme01 CONCH image-text prompt probing.
+# Keep separate from base.in so CPU smoke tests and non-CONCH runs do not depend
+# on this GitHub package.
+transformers<5
+conch @ git+https://github.com/mahmoodlab/CONCH.git

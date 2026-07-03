@@ -1,0 +1,5 @@
+_extends: fusion_single_refit_best.yaml
+run_name: s03_scheme02b_best_pseudo_lam005_single_refit
+lambda_pseudo: 0.05
+min_pseudo_sample_weight: 0.2
+max_pseudo_per_class: null

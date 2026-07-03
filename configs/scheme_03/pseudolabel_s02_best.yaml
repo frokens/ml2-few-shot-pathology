@@ -1,0 +1,12 @@
+_extends: pseudolabel.yaml
+run_name: scheme03_pseudolabel_s02_best
+precision_target: 0.97
+precision_lower_bound_target: 0.85
+min_selected: 1
+min_selected_per_class: 0
+thresholds_from: artifacts/pseudolabels/s02_best_simulation/thresholds_selected.json
+sample_weight:
+  min_weight: 0.1
+  max_weight: 0.4
+  weight_function: linear
+

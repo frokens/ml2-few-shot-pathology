@@ -1,0 +1,41 @@
+run_name: s03_pseudo_lora_smoke
+seed: 2026
+device: cpu
+precision: fp32
+num_workers: 0
+n_splits: 2
+max_folds: 2
+smoke_max_folds: 2
+batch_size: 16
+epochs: 1
+skip_completed: false
+lambda_pseudo: 0.05
+min_pseudo_sample_weight: 0.0
+augmentation:
+  hflip_prob: 0.0
+  vflip_prob: 0.0
+  rot90_prob: 0.0
+  translate: 0.0
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+smoke_backbone:
+  key: tiny_cnn
+  backend: tiny_cnn
+  input_size: 32
+  feature_dim: 32
+smoke_experiment:
+  name: pseudo_lora_smoke
+  mode: lora
+  epochs: 1
+  batch_size: 16
+  head_lr: 0.001
+  adapter_lr: 0.0005
+  weight_decay: 0.0
+  label_smoothing: 0.0
+  target_policy: all_linear_except_head
+  lora:
+    r: 2
+    alpha: 4
+    dropout: 0.0
+    bias: none
+    modules_to_save: [classifier]

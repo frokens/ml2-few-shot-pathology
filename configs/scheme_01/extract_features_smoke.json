@@ -1,0 +1,15 @@
+{
+  "run_name": "scheme01_smoke",
+  "train_manifest": "artifacts/dataset_audit/train_manifest.csv",
+  "test_manifest": "artifacts/dataset_audit/test_manifest.csv",
+  "output_dir": "artifacts/features/scheme_01",
+  "tta": "none",
+  "backbones": [
+    {
+      "key": "pixel_stats",
+      "backend": "pixel_stats",
+      "input_size": 32,
+      "pretrained": false
+    }
+  ]
+}

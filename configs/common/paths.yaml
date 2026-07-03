@@ -1,0 +1,26 @@
+# Common paths configuration
+# Used by all scheme configs; override via Hydra or CLI.
+
+data:
+  train_root: train_few_shot
+  test_root: test
+
+output:
+  artifacts_root: artifacts
+  runs_root: runs
+
+model_store:
+  root: external_models/model_store
+  hf_cache: hf_home
+  hf_hub_cache: hf_home/hub
+  modelscope_cache: external_models/model_store/modelscope
+
+model_registry:
+  requested: artifacts/model_registry/models.requested.yaml
+  lock: artifacts/model_registry/models.lock.yaml
+  sha256sums: artifacts/model_registry/SHA256SUMS
+  license_audit: artifacts/model_registry/license_audit.md
+
+env:
+  conda_env: base
+  hf_hub_offline: true

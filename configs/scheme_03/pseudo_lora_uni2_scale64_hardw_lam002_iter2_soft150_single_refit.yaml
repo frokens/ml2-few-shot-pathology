@@ -1,0 +1,7 @@
+_extends: pseudo_lora_uni2_scale64_hardw_lam002_iter2_soft150.yaml
+run_name: s03_uni2_scale64_hardw_pseudo_lam002_iter2_soft150_single_refit
+skip_completed: true
+epochs: 11
+refit_epoch_source:
+  summary: runs/scheme_03/s03_uni2_scale64_hardw_pseudo_lam002_iter2_soft150_20260613/metrics/summary.json
+  metric: macro_f1

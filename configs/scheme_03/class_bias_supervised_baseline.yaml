@@ -1,0 +1,12 @@
+run_name: s03_supervised_baseline_class_bias
+oof_prediction: runs/scheme_02/s02b_b1_lowcap_20260611/predictions/oof_fusion__b1_uni_conch_adapters_all4_concat_p32_reg.npz
+out_dir: artifacts/analysis/scheme03_class_bias/supervised_baseline
+seed: 2026
+n_splits: 5
+
+bias_grid:
+  Class_0: [-0.6, -0.4, -0.2]
+  Class_1: [-0.2, 0.0, 0.2]
+  Class_2: [-0.6, -0.4, -0.2]
+  Class_3: [0.0, 0.2, 0.4]
+  Class_4: [-0.4, -0.2, 0.0]

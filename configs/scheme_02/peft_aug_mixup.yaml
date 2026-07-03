@@ -1,0 +1,11 @@
+_extends: peft_cv.yaml
+run_name: s02_aug_mixup
+skip_completed: true
+mixup:
+  alpha: 0.2
+  probability: 0.5
+experiments:
+  - name: lora_qkv_r8_mixup
+    mode: lora
+    target_policy: attention_qkv
+    lora: {r: 8, alpha: 16, dropout: 0.05, bias: none, modules_to_save: [classifier]}

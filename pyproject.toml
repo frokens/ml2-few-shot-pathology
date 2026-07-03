@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml_final"
+version = "0.1.0"
+description = "ML final project — pathology image classification"
+readme = { file = "CLAUDE.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "torch",
+    "torchvision",
+    "timm",
+    "huggingface-hub",
+    "transformers",
+    "peft",
+    "scikit-learn",
+    "numpy",
+    "pandas",
+    "Pillow",
+    "typer[all]",
+    "rich",
+    "pyyaml",
+    "loguru",
+    "joblib",
+    "omegaconf",
+    "opencv-python-headless",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "pip-tools",
+    "ipykernel",
+]
+conch = [
+    "conch @ git+https://github.com/mahmoodlab/CONCH.git",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM", "C4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,51 @@
+_extends: pseudolabel_s02_best.yaml
+run_name: scheme03_pseudolabel_s02_strategy_b_strict
+
+# Strategy B: allow hard classes only if their OOF pseudo precision survives a
+# stricter per-class gate; failed classes are pruned to quota=0.
+policy_source: fixed
+thresholds_from: artifacts/pseudolabels/s02_strategy_b_simulation/thresholds_selected.json
+effective_weight_lambdas: [0.02, 0.05]
+prune_failed_classes: true
+pruning:
+  Class_0: {min_precision: 0.97, min_selected: 5}
+  Class_1: {min_precision: 0.97, min_selected: 5}
+  Class_2: {min_precision: 0.90, min_selected: 3}
+  Class_3: {min_precision: 0.95, min_selected: 3}
+  Class_4: {min_precision: 0.95, min_selected: 3}
+
+policy:
+  prob_top1:
+    Class_0: 0.85
+    Class_1: 0.85
+    Class_2: 0.90
+    Class_3: 0.95
+    Class_4: 0.97
+  margin:
+    Class_0: 0.05
+    Class_1: 0.05
+    Class_2: 0.10
+    Class_3: 0.50
+    Class_4: 0.60
+  entropy_max:
+    Class_0: 0.50
+    Class_1: 0.35
+    Class_2: 0.50
+    Class_3: 0.35
+    Class_4: 0.30
+  quota:
+    Class_0: 80
+    Class_1: 60
+    Class_2: 20
+    Class_3: 10
+    Class_4: 10
+  min_teacher_agreement:
+    Class_0: 0.0
+    Class_1: 0.0
+    Class_2: 0.0
+    Class_3: 0.0
+    Class_4: 0.0
+  sample_weight:
+    min_weight: 0.05
+    max_weight: 0.25
+    weight_function: linear

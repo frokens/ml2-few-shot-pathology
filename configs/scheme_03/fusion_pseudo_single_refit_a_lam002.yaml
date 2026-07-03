@@ -1,0 +1,8 @@
+_extends: fusion_single_refit_best.yaml
+run_name: s03_scheme02b_best_pseudo_a_lam002_single_refit
+
+# Match the only Scheme03 pseudo-student branch that showed a useful
+# probability-space signal after fold-safe class-bias calibration.
+lambda_pseudo: 0.02
+min_pseudo_sample_weight: 0.0
+max_pseudo_per_class: null

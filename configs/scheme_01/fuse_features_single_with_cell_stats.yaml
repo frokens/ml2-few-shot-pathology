@@ -1,0 +1,19 @@
+run_name: s01_fused_single_cell_stats
+fusion_id: all4_single_cell_stats
+output_dir: artifacts/features/scheme_01/s01_fused_single_cell_stats
+sources:
+  - name: uni2_h
+    path: artifacts/features/scheme_01/s01_single/uni2_h/uni2_h_timm_tta-none_5eb18eca11.npz
+    weight: 1.0
+  - name: virchow2
+    path: artifacts/features/scheme_01/s01_single/virchow2/virchow2_timm_tta-none_fd647b707a.npz
+    weight: 1.0
+  - name: conch
+    path: artifacts/features/scheme_01/s01_single/conch/conch_conch_tta-none_effa33cf57.npz
+    weight: 1.0
+  - name: h_optimus_0
+    path: artifacts/features/scheme_01/s01_single/h_optimus_0/h_optimus_0_timm_tta-none_9ffa041b4c.npz
+    weight: 1.0
+  - name: cell_stats
+    path: artifacts/features/scheme_01/s01_cell_stats/cell_stats/cell_stats_cell_stats_tta-none_5a0a573312.npz
+    weight: 1.0

@@ -1,0 +1,9 @@
+_extends: teacher.yaml
+run_name: scheme03_teacher_uni2_scale48_hardw_imgadapter
+oof_prediction_files:
+  - runs/scheme_02/s02a_uni2_scale48_imgadapter_20260615/predictions/oof_uni2_h__rslora_qkv_proj_r16_no_ema_scale48_hardw_imgadapter.npz
+test_prediction_files:
+  - runs/scheme_02/s02a_uni2_scale48_imgadapter_single_refit_teacher_20260616/predictions/test_uni2_h__rslora_qkv_proj_r16_no_ema_scale48_hardw_imgadapter__single_refit.npz
+teacher_sources_file: null
+optional_teacher_sources_file: null
+allow_prediction_search: false

@@ -1,0 +1,31 @@
+_extends: fusion_peft_cv.yaml
+run_name: scheme02b_b1_p32_uni_scale80_adapter_cv
+
+# Use the fold-local UNI2 adapter trained with the scale80 cell view. CONCH
+# keeps the legacy adapter/view; frozen auxiliary branches keep legacy views.
+branch_overrides:
+  uni2_h:
+    scale_to: 80
+    scale_pad_fill_rgb: [255, 255, 255]
+
+adapter_sources:
+  uni2_h:
+    source_run: s02a_uni2_scale80_cv_20260612
+    experiment_id: uni2_h__rslora_qkv_proj_r16_no_ema_scale80
+    target_policy: attention_qkv_proj
+    checkpoint_name: best_macro_f1.pt
+    lora:
+      r: 16
+      alpha: 32
+      dropout: 0.05
+      bias: none
+      modules_to_save: [classifier]
+      use_rslora: true
+
+experiments:
+  - name: b1_uni_scale80_conch_legacy_all4_concat_p32
+    composer: concat_linear
+    projection_dim: 32
+    dropout: 0.5
+    weight_decay: 0.05
+    adapter_branches: [uni2_h, conch]

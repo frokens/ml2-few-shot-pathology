@@ -1,0 +1,33 @@
+_extends: peft_conch_no_ema.yaml
+run_name: s02a_conch_scale80_fold0
+skip_completed: false
+max_folds: 1
+
+# Opt-in Cell-Scale Adapter probe: train CONCH on 32->80 centered-pad views.
+backbones:
+  - key: conch
+    backend: conch
+    model_name: conch_ViT-B-16
+    lock_key: conch
+    lock_path: artifacts/model_registry/models.lock.yaml
+    input_size: 224
+    scale_to: 80
+    scale_pad_fill_rgb: [255, 255, 255]
+    pretrained: true
+    feature_dim: 512
+
+experiments:
+  - name: lora_qkv_proj_r16_no_ema_scale80
+    backbone_keys: [conch]
+    mode: lora
+    batch_size: 8
+    head_lr: 0.0005
+    adapter_lr: 0.00005
+    ema_decay: 0.0
+    target_policy: attention_qkv_proj
+    lora:
+      r: 16
+      alpha: 32
+      dropout: 0.05
+      bias: none
+      modules_to_save: [classifier]

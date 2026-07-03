@@ -1,0 +1,11 @@
+_extends: pseudo_lora_uni2_scale64_hardw_lam001_iter2_soft150.yaml
+run_name: s03_uni2_scale64_hardw_pseudo_lam001_iter2_soft150_pcw_c2down_c3up
+lambda_pseudo: 0.001
+skip_completed: true
+
+pseudo_class_weight:
+  Class_0: 1.0
+  Class_1: 1.0
+  Class_2: 0.75
+  Class_3: 1.25
+  Class_4: 1.05

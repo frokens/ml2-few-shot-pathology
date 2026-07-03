@@ -1,0 +1,3 @@
+_extends: pseudo_retrain.yaml
+run_name: scheme03_pseudo_heads_lam01
+lambda_pseudo: 0.1

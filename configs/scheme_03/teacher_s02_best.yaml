@@ -1,0 +1,10 @@
+_extends: teacher.yaml
+run_name: scheme03_teacher_s02_best
+oof_prediction_files:
+  - runs/scheme_02/s02b_b1_lowcap_20260611/predictions/oof_fusion__b1_uni_conch_adapters_all4_concat_p32_reg.npz
+test_prediction_files:
+  - runs/scheme_03/s03_scheme02b_best_single_refit/predictions/test_fusion__b1_uni_conch_adapters_all4_concat_p32_reg__single_refit.npz
+teacher_sources_file: null
+optional_teacher_sources_file: null
+allow_prediction_search: false
+

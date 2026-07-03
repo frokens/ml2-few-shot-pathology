@@ -1,0 +1,4 @@
+_extends: fusion_pseudo_cv_s02b_lam002.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_focal1
+focal_loss:
+  gamma: 1.0

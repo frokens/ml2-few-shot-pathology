@@ -1,0 +1,18 @@
+_extends: peft_cv.yaml
+run_name: s02_aug_mild_color
+skip_completed: true
+augmentation:
+  hflip_prob: 0.5
+  vflip_prob: 0.5
+  rot90_prob: 0.5
+  translate: 0.05
+  color_jitter:
+    brightness: 0.08
+    contrast: 0.08
+    saturation: 0.04
+    hue: 0.0
+experiments:
+  - name: lora_qkv_r8_mild_color
+    mode: lora
+    target_policy: attention_qkv
+    lora: {r: 8, alpha: 16, dropout: 0.05, bias: none, modules_to_save: [classifier]}

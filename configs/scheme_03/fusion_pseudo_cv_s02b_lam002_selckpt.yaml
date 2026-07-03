@@ -1,0 +1,7 @@
+_extends: fusion_pseudo_cv_s02b_lam002.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_selckpt
+
+# Sprint candidate: keep A_lam002 training unchanged, but reload each fold from
+# the checkpoint that maximizes the project selection objective instead of
+# macro-F1 alone. Existing configs keep the historical macro-F1 behavior.
+checkpoint_metric: selection_score

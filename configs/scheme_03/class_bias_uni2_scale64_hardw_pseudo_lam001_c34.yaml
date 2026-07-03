@@ -1,0 +1,14 @@
+run_name: s03_uni2_scale64_hardw_pseudo_lam001_class_bias_c34
+oof_prediction: runs/scheme_03/s03_uni2_scale64_hardw_pseudo_lam001_20260612/predictions/oof_uni2_h__rslora_qkv_proj_r16_no_ema_scale64_hardw_pseudo__pseudo_lora.npz
+out_dir: artifacts/analysis/scheme03_class_bias/uni2_scale64_hardw_pseudo_lam001_c34
+seed: 2026
+n_splits: 5
+
+temperature_grid: [0.85, 1.00, 1.15]
+
+bias_grid:
+  Class_0: [0.00]
+  Class_1: [0.00]
+  Class_2: [0.00]
+  Class_3: [-0.10, 0.00, 0.10, 0.20]
+  Class_4: [-0.10, 0.00, 0.10, 0.20]

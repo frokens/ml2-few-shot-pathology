@@ -1,0 +1,25 @@
+run_name: fusion_variants_cv
+features_dir: artifacts/features/scheme_01/s01_fusion_variants
+run_dir: runs/scheme_01/fusion_variants_cv
+seed: 2026
+n_splits: 5
+n_repeats: 1
+skip_completed: true
+ensemble:
+  enabled: false
+heads:
+  - name: logreg_C0.03
+    family: logreg
+    C: 0.03
+  - name: logreg_C0.1
+    family: logreg
+    C: 0.1
+  - name: logreg_C0.3
+    family: logreg
+    C: 0.3
+  - name: logreg_C1
+    family: logreg
+    C: 1.0
+  - name: logreg_C3
+    family: logreg
+    C: 3.0

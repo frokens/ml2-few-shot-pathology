@@ -1,0 +1,18 @@
+_extends: fusion_pseudo_cv_s02b_lam002.yaml
+run_name: s03_scheme02b_best_pseudo_cv_lam002_feature_tta
+
+# Sprint candidate: keep A_lam002 training unchanged, but evaluate each fold
+# from one model using feature-level aggregation inside each branch before the
+# single fusion head. This is not prediction-level TTA and not an ensemble.
+eval_feature_strategies:
+  uni2_h:
+    tta: d4
+  virchow2:
+    tta: none
+  conch:
+    tta: d4
+    color_tta:
+      strength: 0.08
+      channels: [brightness, contrast, saturation]
+  h_optimus_0:
+    tta: d4
